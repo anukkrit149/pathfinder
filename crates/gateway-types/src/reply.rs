@@ -36,7 +36,7 @@ pub struct Block {
     #[serde(default)]
     pub sequencer_address: Option<SequencerAddress>,
     // Historical blocks (pre v0.11) still use `state_root`.
-    #[serde(alias = "state_root")]
+    #[serde(rename = "state_root")]
     pub state_commitment: StateCommitment,
     pub status: Status,
     pub timestamp: BlockTimestamp,
