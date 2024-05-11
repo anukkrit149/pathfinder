@@ -36,7 +36,7 @@ pub struct Block {
     #[serde(default)]
     pub sequencer_address: Option<SequencerAddress>,
     // Historical blocks (pre v0.11) still use `state_root`.
-    #[serde(alias = "state_root")]
+    #[serde(rename = "state_root")]
     pub state_commitment: StateCommitment,
     pub status: Status,
     pub timestamp: BlockTimestamp,
@@ -217,7 +217,7 @@ pub mod transaction_status {
 }
 
 /// Types used when deserializing L2 transaction related data.
-pub(crate) mod transaction {
+pub mod transaction {
     use fake::{Dummy, Fake, Faker};
     use pathfinder_common::{
         AccountDeploymentDataElem,
